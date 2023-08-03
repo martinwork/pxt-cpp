@@ -42,6 +42,7 @@ void one() {
     char macro9[] = "MICROBIT_BLE_SECURITY_MODE               = " MACROTOSTRING(MICROBIT_BLE_SECURITY_MODE) "\n";
     char macroA[] = "MICROBIT_BLE_UTILITY_SERVICE_PAIRING     = " MACROTOSTRING(MICROBIT_BLE_UTILITY_SERVICE_PAIRING) "\n";
     char macroB[] = "MICROBIT_BLE_UTILITY_SERVICE             = " MACROTOSTRING(MICROBIT_BLE_UTILITY_SERVICE) "\n";
+    char macroC[] = "MICROBIT_BLE_MAXIMUM_BONDS               = " MACROTOSTRING(MICROBIT_BLE_MAXIMUM_BONDS) "\n";
 
     uBit.serial.send( macro1);
     uBit.serial.send( macro2);
@@ -54,6 +55,7 @@ void one() {
     uBit.serial.send( macro9);
     uBit.serial.send( macroA);
     uBit.serial.send( macroB);
+    uBit.serial.send( macroC);
 } 
 
 }
