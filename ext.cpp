@@ -8,6 +8,8 @@
 
 #if MICROBIT_CODAL
 
+#include "fds.h"
+
 #endif // MICROBIT_CODAL
 
 
