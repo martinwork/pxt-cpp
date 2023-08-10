@@ -97,6 +97,7 @@ void map() {
 #endif // MICROBIT_CODAL
 }
 
+
 /**
   * fdsStat
   */
@@ -109,40 +110,30 @@ void fdsStat() {
 
     fds_stat( &stat);
 
-    int pages_available = (int) stat.pages_available;
-    int open_records    = (int) stat.open_records;
-    int valid_records   = (int) stat.valid_records;
-    int dirty_records   = (int) stat.dirty_records;
-    int words_reserved  = (int) stat.words_reserved;
-    int words_used      = (int) stat.words_used;
-    int largest_contig  = (int) stat.largest_contig;
-    int freeable_words  = (int) stat.freeable_words;
-    int corruption      = (int) stat.corruption;
+    uBit.serial.send( "\n\nfds_stat\n");
 
-    uBit.serial.printf( "\n\nfds_stat\n");
-
-    uBit.serial.printf( "pages_available  %d\n", pages_available);   //!< The number of pages available.
-    uBit.serial.printf( "open_records     %d\n", open_records);      //!< The number of open records.
-    uBit.serial.printf( "valid_records    %d\n", valid_records);     //!< The number of valid records.
-    uBit.serial.printf( "dirty_records    %d\n", dirty_records);     //!< The number of deleted ("dirty") records.
-    uBit.serial.printf( "words_reserved   %d\n", words_reserved);    //!< The number of words reserved by @ref fds_reserve().
+    uBit.serial.send( "pages_available " + ManagedString( (int) stat.pages_available) + "\n");   //!< The number of pages available.
+    uBit.serial.send( "open_records    " + ManagedString( (int) stat.open_records) + "\n");      //!< The number of open records.
+    uBit.serial.send( "valid_records   " + ManagedString( (int) stat.valid_records) + "\n");     //!< The number of valid records.
+    uBit.serial.send( "dirty_records   " + ManagedString( (int) stat.dirty_records) + "\n");     //!< The number of deleted ("dirty") records.
+    uBit.serial.send( "words_reserved  " + ManagedString( (int) stat.words_reserved) + "\n");    //!< The number of words reserved by @ref fds_reserve().
 
     /**@brief The number of words written to flash, including those reserved for future writes. */
-    uBit.serial.printf( "words_used       %d\n", words_used);
+    uBit.serial.send( "words_used      " + ManagedString( (int) stat.words_used) + "\n");
 
     /**@brief The largest number of free contiguous words in the file system.
      *
      * This number indicates the largest record that can be stored by FDS.
      * It takes into account all reservations for future writes.
      */
-    uBit.serial.printf( "largest_contig   %d\n", largest_contig);
+    uBit.serial.send( "largest_contig  " + ManagedString( (int) stat.largest_contig) + "\n");
 
     /**@brief The largest number of words that can be reclaimed by garbage collection.
      *
      * The actual amount of space freed by garbage collection might be less than this value if
      * records are open while garbage collection is run.
      */
-    uBit.serial.printf( "freeable_words   %d\n", freeable_words);
+    uBit.serial.send( "freeable_words  " + ManagedString( (int) stat.freeable_words) + "\n");
 
     /**@brief Filesystem corruption has been detected.
      *
@@ -151,9 +142,10 @@ void fdsStat() {
      *
      * @note: This flag is unrelated to CRC failures.
      */
-    uBit.serial.printf( "corruption       %d\n", corruption);
+    uBit.serial.send( "corruption      " + ManagedString( (int) stat.corruption) + "\n");
 #endif // MICROBIT_CODAL
 }
+
 
 /**
   * fdsRecords
@@ -175,11 +167,7 @@ void fdsRecords() {
     memset( &token, 0, sizeof(token));
     while ( fds_record_iterate( &desc, &token) == NRF_SUCCESS)
     {
-      int           record_id       = (int)           desc.record_id;
-      unsigned int  p_record        = (unsigned int)  desc.p_record;
-      int           gc_run_count    = (int)           desc.gc_run_count;
-      int           record_is_open  = (int)           desc.record_is_open;         
-      uBit.serial.printf( "%d, 0x%x, %d, %d\n", record_id, p_record, gc_run_count, record_is_open);         
+      uBit.serial.printf( "%d, 0x%x, %d, %d\n", (int) desc.record_id, (unsigned int) desc.p_record, (int) desc.gc_run_count, (int) desc.record_is_open);         
     }
 #endif // MICROBIT_CODAL
 }
