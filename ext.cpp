@@ -67,6 +67,7 @@ void config() {
 //% block="map"
 //%
 void map() {
+#if MICROBIT_CODAL
     uBit.serial.printf( "\n\nmap\n");
 
     uBit.serial.printf( "MICROBIT_CODEPAGESIZE          0x%x\n", (unsigned int) MICROBIT_CODEPAGESIZE);
@@ -91,6 +92,7 @@ void map() {
     uBit.serial.printf( "KEY_VALUE_STORE_PAGE           0x%x\n", (unsigned int) KEY_VALUE_STORE_PAGE);
     uBit.serial.printf( "BLE_BOND_DATA_PAGE             0x%x\n", (unsigned int) BLE_BOND_DATA_PAGE);
     uBit.serial.printf( "DEFAULT_SCRATCH_PAGE           0x%x\n", (unsigned int) DEFAULT_SCRATCH_PAGE);
+#endif // MICROBIT_CODAL
 }
 
 /**
@@ -100,6 +102,7 @@ void map() {
 //% block="fdsStat"
 //%
 void fdsStat() {
+#if MICROBIT_CODAL
     fds_stat_t stat;
 
     fds_stat( &stat);
@@ -137,6 +140,7 @@ void fdsStat() {
      * @note: This flag is unrelated to CRC failures.
      */
     uBit.serial.printf( "corruption       %d\n", (int) stat.corruption);
+#endif // MICROBIT_CODAL
 }
 
 /**
@@ -146,6 +150,7 @@ void fdsStat() {
 //% block="fdsRecords"
 //%
 void fdsRecords() {
+#if MICROBIT_CODAL
     uBit.serial.printf( "\n\nrecords: id, address, gc_run_count, isopen\n\n");        
     //!< The unique record ID.
     //!< The last known location of the record in flash.
@@ -160,6 +165,7 @@ void fdsRecords() {
     {
       uBit.serial.printf( "%d, 0x%x, %d, %d\n", (int) desc.record_id, (unsigned int) desc.p_record, (int) desc.gc_run_count, (int) desc.record_is_open);         
     }
+#endif // MICROBIT_CODAL
 }
 
 /**
