@@ -12,10 +12,18 @@ namespace cpptest {
 /**
  * one
  */
-//% help=cpptest/one
 //% block="one"
 //% shim=cpptest::one
 export function one(): void {
+    basic.pause(0)
+}
+    
+/**
+ * settings
+ */
+//% block="settings"
+//% shim=cpptest::settings
+export function settings(): void {
     basic.pause(0)
 }
 
