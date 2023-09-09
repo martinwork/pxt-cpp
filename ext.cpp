@@ -27,7 +27,6 @@ namespace cpptest {
 /**
   * one
   */
-//% help=cpptest/one
 //% block="one"
 //%
 void one() {
@@ -43,6 +42,7 @@ void one() {
     char macroA[] = "MICROBIT_BLE_UTILITY_SERVICE_PAIRING     = " MACROTOSTRING(MICROBIT_BLE_UTILITY_SERVICE_PAIRING) "\n";
     char macroB[] = "MICROBIT_BLE_UTILITY_SERVICE             = " MACROTOSTRING(MICROBIT_BLE_UTILITY_SERVICE) "\n";
     char macroC[] = "MICROBIT_BLE_MAXIMUM_BONDS               = " MACROTOSTRING(MICROBIT_BLE_MAXIMUM_BONDS) "\n";
+    char macroD[] = "CODAL_EXAMPLE                            = " MACROTOSTRING(CODAL_EXAMPLE) "\n";
 
     uBit.serial.send( macro1);
     uBit.serial.send( macro2);
@@ -56,6 +56,18 @@ void one() {
     uBit.serial.send( macroA);
     uBit.serial.send( macroB);
     uBit.serial.send( macroC);
+    uBit.serial.send( macroD);
+}
+
+/**
+  * settings
+  */
+//% block="settings"
+//%
+void settings() {
+    char settingsA[] = "CODAL_EXAMPLE                            = " MACROTOSTRING(CODAL_EXAMPLE) "\n";
+
+    uBit.serial.send( settingsA);
 } 
 
 }
