@@ -43,6 +43,15 @@ void one() {
     char macroB[] = "MICROBIT_BLE_UTILITY_SERVICE             = " MACROTOSTRING(MICROBIT_BLE_UTILITY_SERVICE) "\n";
     char macroC[] = "MICROBIT_BLE_MAXIMUM_BONDS               = " MACROTOSTRING(MICROBIT_BLE_MAXIMUM_BONDS) "\n";
     char macroD[] = "CODAL_EXAMPLE                            = " MACROTOSTRING(CODAL_EXAMPLE) "\n";
+    char macroE[] = "CODAL_VERSION_MAJOR                      = " MACROTOSTRING(CODAL_VERSION_MAJOR) "\n";
+    char macroF[] = "CODAL_VERSION_MINOR                      = " MACROTOSTRING(CODAL_VERSION_MINOR) "\n";
+    char macroG[] = "CODAL_VERSION_PATCH                      = " MACROTOSTRING(CODAL_VERSION_PATCH) "\n";
+    char macroH[] = "CODAL_VERSION_HASH                       = " MACROTOSTRING(CODAL_VERSION_HASH) "\n";
+    char macroI[] = "CODAL_TARGET_NAME                        = " MACROTOSTRING(CODAL_TARGET_NAME) "\n";
+    char macroJ[] = "CODAL_VERSION                            = " MACROTOSTRING(CODAL_VERSION) "\n";
+    char macroK[] = "CODAL_VERSION_LONG                       = " MACROTOSTRING(CODAL_VERSION_LONG) "\n";
+    char macroL[] = "DEVICE_DAL_VERSION                       = " MACROTOSTRING(DEVICE_DAL_VERSION) "\n";
+    char macroM[] = "MICROBIT_DAL_VERSION                     = " MACROTOSTRING(MICROBIT_DAL_VERSION) "\n";
 
     uBit.serial.send( macro1);
     uBit.serial.send( macro2);
@@ -57,6 +66,15 @@ void one() {
     uBit.serial.send( macroB);
     uBit.serial.send( macroC);
     uBit.serial.send( macroD);
+    uBit.serial.send( macroE);
+    uBit.serial.send( macroF);
+    uBit.serial.send( macroG);
+    uBit.serial.send( macroH);
+    uBit.serial.send( macroI);
+    uBit.serial.send( macroJ);
+    uBit.serial.send( macroK);
+    uBit.serial.send( macroL);
+    uBit.serial.send( macroM);
 }
 
 /**
