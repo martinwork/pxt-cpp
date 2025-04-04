@@ -4,3 +4,5 @@
  * SPDX-License-Identifier: MIT
  */
 
+ cpptest.one()
+ cpptest.settings()

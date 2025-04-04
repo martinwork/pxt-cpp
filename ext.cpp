@@ -1,4 +1,4 @@
-/**
+/*
  * (c) 2023, Micro:bit Educational Foundation and contributors
  *
  * SPDX-License-Identifier: MIT
@@ -10,10 +10,6 @@
 
 #endif // MICROBIT_CODAL
 
-
-//% block="cpptest"
-//% icon="\uf012"
-//% color=#AA278D
 namespace cpptest {
 
 #define MACROTOSTR(x) #x
@@ -24,10 +20,6 @@ namespace cpptest {
 #define MACROTOSTRING20(x) MACROTOSTR20(x)
 #define MACROTOSTRING21(x) MACROTOSTR21(x)
 
-/**
-  * one
-  */
-//% block="one"
 //%
 void one() {
     char macro1[] = "DEVICE_BLE                               = " MACROTOSTRING(DEVICE_BLE) "\n";
@@ -77,10 +69,6 @@ void one() {
     uBit.serial.send( macroM);
 }
 
-/**
-  * settings
-  */
-//% block="settings"
 //%
 void settings() {
     char settingsA[] = "CODAL_EXAMPLE                            = " MACROTOSTRING(CODAL_EXAMPLE) "\n";
